@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.example.ant_mall.business.product.entity.Product;
 import com.example.ant_mall.business.product.mapper.ProductMapper;
 import com.example.ant_mall.business.product.bo.ProductAddBO;
+import com.example.ant_mall.business.product.bo.ProductEditBO;
 import com.example.ant_mall.business.product.service.ProductService;
 
 
@@ -19,6 +20,14 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         BeanUtils.copyProperties(addBO, product);
 
         save(product);
+    }
+
+    @Override
+    public void edit(ProductEditBO editBO) {
+        Product product = new Product();
+        BeanUtils.copyProperties(editBO, product);
+
+        updateById(product);
     }
     
 }

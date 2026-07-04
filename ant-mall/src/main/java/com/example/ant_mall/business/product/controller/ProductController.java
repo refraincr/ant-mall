@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.ant_mall.business.product.bo.ProductAddBO;
+import com.example.ant_mall.business.product.bo.ProductEditBO;
 import com.example.ant_mall.business.product.service.ProductService;
 
 @Tag(name="商品管理")
@@ -25,6 +26,12 @@ public class ProductController {
     @PostMapping("add")
     public void add(@Valid @RequestBody ProductAddBO addBO) {
         productService.add(addBO);
+    }
+
+    @Operation(summary = "编辑")
+    @PostMapping("edit")
+    public void edit(@Valid @RequestBody ProductEditBO editBO) {
+        productService.edit(editBO);
     }
     
 }
