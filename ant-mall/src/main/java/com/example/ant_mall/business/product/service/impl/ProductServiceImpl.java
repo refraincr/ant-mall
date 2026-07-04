@@ -73,5 +73,9 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
         return pageVO;
     }
-    
+
+    @Override
+    public void delete(List<Long> idList) {
+        removeBatchByIds(idList);
+    }
 }
