@@ -8,12 +8,16 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.ant_mall.business.product.bo.ProductAddBO;
 import com.example.ant_mall.business.product.bo.ProductEditBO;
+import com.example.ant_mall.business.product.bo.ProductQueryBO;
+import com.example.ant_mall.business.product.vo.ProductQueryVO;
 import com.example.ant_mall.business.product.service.ProductService;
+import com.example.ant_mall.common.entity.PageVO;
 
 @Tag(name="商品管理")
 @RestController
@@ -34,4 +38,9 @@ public class ProductController {
         productService.edit(editBO);
     }
     
+    @Operation(summary = "查询")
+    @GetMapping("page")
+    public PageVO<ProductQueryVO> page(ProductQueryBO queryBO) {
+        return productService.page(queryBO);
+    }
 }
