@@ -3,3 +3,12 @@ server:
 spring:
   application:
     name: ant-mall
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ant-mall?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf-8
+    username: root
+    password: 222333
+mybatis-plus:
+  configuration:
+    # 配置控制台打印完整带参数sql语句
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
