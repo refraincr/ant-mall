@@ -52,6 +52,6 @@ public class ProductController {
     @Operation(summary = "删除")
     @PostMapping("delete")
     public void delete(@NotEmpty @RequestBody List<Long> idList) {
-        productService.edit(idList);
+        productService.delete(idList);
     }
 }
